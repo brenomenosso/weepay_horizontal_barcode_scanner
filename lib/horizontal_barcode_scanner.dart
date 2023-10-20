@@ -23,7 +23,7 @@ class HorizontalBarcodeScanner {
     bool showLine = true,
     Color lineColor = Colors.blue,
     double lineWidth = 2,
-    double scannerHeight = 170,
+    double scannerHeight = 160,
     Widget loadingWidget = const Text(
       'Loading...',
       style: TextStyle(
