@@ -32,6 +32,7 @@ class HorizontalBarcodeScanner {
       ),
     ),
   }) async {
+    print(cameraResolution);
     final Object? result = await Navigator.push(
       context,
       MaterialPageRoute(
