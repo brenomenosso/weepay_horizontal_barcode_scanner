@@ -142,7 +142,7 @@ class ScannerPageState extends State<ScannerPage> {
         } catch (e) {
           log('horizontal_barcode_scanner [Error]: $e');
           if (mounted && Navigator.canPop(context)) {
-            //Navigator.pop(context, 0);
+            Navigator.pop(context, 0);
           }
         }
       });
