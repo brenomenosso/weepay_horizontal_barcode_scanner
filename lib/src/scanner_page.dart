@@ -214,7 +214,6 @@ class ScannerPageState extends State<ScannerPage> {
     super.dispose();
     _barcodeScanner?.close();
     _cameraController?.stopImageStream();
-    _cameraController?.debugCheckIsDisposed();
     _cameraController?.dispose();
   }
 }
