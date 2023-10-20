@@ -104,6 +104,7 @@ class ScannerPageState extends State<ScannerPage> {
         continue;
       }
       if (mounted && Navigator.canPop(context)) {
+        log('CAPTUROU O CODIGO');
         _done = true;
         SystemChrome.setPreferredOrientations([
           DeviceOrientation.portraitUp,
@@ -141,7 +142,7 @@ class ScannerPageState extends State<ScannerPage> {
         } catch (e) {
           log('horizontal_barcode_scanner [Error]: $e');
           if (mounted && Navigator.canPop(context)) {
-            Navigator.pop(context, 0);
+            //Navigator.pop(context, 0);
           }
         }
       });
@@ -213,6 +214,7 @@ class ScannerPageState extends State<ScannerPage> {
     super.dispose();
     _barcodeScanner?.close();
     _cameraController?.stopImageStream();
+    _cameraController?.debugCheckIsDisposed();
     _cameraController?.dispose();
   }
 }
