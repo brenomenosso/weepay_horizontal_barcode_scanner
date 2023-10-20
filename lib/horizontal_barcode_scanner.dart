@@ -23,7 +23,7 @@ class HorizontalBarcodeScanner {
     bool showLine = true,
     Color lineColor = Colors.blue,
     double lineWidth = 2,
-    double scannerHeight = 160,
+    double scannerHeight = 170,
     Widget loadingWidget = const Text(
       'Loading...',
       style: TextStyle(
@@ -32,7 +32,6 @@ class HorizontalBarcodeScanner {
       ),
     ),
   }) async {
-    print(cameraResolution);
     final Object? result = await Navigator.push(
       context,
       MaterialPageRoute(
