@@ -155,8 +155,7 @@ class ScannerPageState extends State<ScannerPage> {
 
   _setOrientacionVertical () {
     SystemChrome.setPreferredOrientations([
-          DeviceOrientation.portraitUp,
-          DeviceOrientation.portraitDown,
+          DeviceOrientation.portraitUp
     ]);
   }
 
