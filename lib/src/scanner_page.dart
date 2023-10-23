@@ -152,6 +152,13 @@ class ScannerPageState extends State<ScannerPage> {
     });
   }
 
+  _setOrientacionVertical () {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -214,6 +221,7 @@ class ScannerPageState extends State<ScannerPage> {
   @override
   void dispose() {
     super.dispose();
+    _setOrientacionVertical();
     _barcodeScanner?.close();
     _cameraController?.stopImageStream();
     _cameraController?.dispose();
