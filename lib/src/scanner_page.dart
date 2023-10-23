@@ -44,6 +44,7 @@ class ScannerPageState extends State<ScannerPage> {
   BarcodeScanner? _barcodeScanner;
   CameraDescription? _firstCamera;
   bool _done = false;
+  int _frameCounter = 0;
 
   final _orientations = {
     DeviceOrientation.portraitUp: 0,
@@ -89,6 +90,7 @@ class ScannerPageState extends State<ScannerPage> {
   }
 
   _processCameraImage(BuildContext ctx, CameraImage image) async {
+    if (_frameCounter++ % 3 != 0) return;
     final inputImage = _inputImageFromCameraImage(image);
     if (inputImage == null) {
       return;
