@@ -114,6 +114,7 @@ class ScannerPageState extends State<ScannerPage> {
           DeviceOrientation.landscapeLeft,
           DeviceOrientation.landscapeRight,
         ]);
+        if (Platform.isIOS) _setOrientacionVertical(); 
         final codeString =
             BarcodeUtils.getFormattedbarcode(barcode.displayValue!);
         Navigator.pop(ctx, codeString);
@@ -221,7 +222,7 @@ class ScannerPageState extends State<ScannerPage> {
   @override
   void dispose() {
     super.dispose();
-    _setOrientacionVertical();
+    //_setOrientacionVertical();
     _barcodeScanner?.close();
     _cameraController?.stopImageStream();
     _cameraController?.dispose();
