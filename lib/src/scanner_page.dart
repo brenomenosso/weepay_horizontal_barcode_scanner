@@ -123,7 +123,7 @@ class ScannerPageState extends State<ScannerPage> {
   }
 
   _initializeCamera(BuildContext ctx) async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 3));
     final cameras = await availableCameras();
     _firstCamera = cameras.first;
     _cameraController = CameraController(
