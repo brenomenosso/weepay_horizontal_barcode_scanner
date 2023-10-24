@@ -125,6 +125,8 @@ class ScannerPageState extends State<ScannerPage> {
   _initializeCamera(BuildContext ctx) async {
     await Future.delayed(const Duration(seconds: 2));
     final cameras = await availableCameras();
+    log(cameras.toString());
+    if (cameras.isEmpty) return;
     _firstCamera = cameras.first;
     _cameraController = CameraController(
       _firstCamera!,
@@ -136,10 +138,14 @@ class ScannerPageState extends State<ScannerPage> {
     );
     _cameraController!.initialize().then((_) {
       if (!mounted) {
+        log('FECHOU INITIALIZER');
         return;
       }
       _cameraController!.startImageStream((image) {
-        if (_done) return;
+        if (_done) {
+          log('FECHOU START IMAGE STREAM');
+          return;
+        }
         try {
           _processCameraImage(ctx, image);
         } catch (e) {
